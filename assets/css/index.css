@@ -7,7 +7,7 @@
     --main-color:#f86011;
     --main-font-family: 'Montserrat', sans-serif; 
 
-    --nav-font-size: 18px;
+   
     --nav-font-weight:400;
     --nav-color: rgba(0,0,0,0.65);
 
@@ -16,6 +16,7 @@
     --button-search-color: #e1500252;
 
     --card-post-background-color:#f8f9fa;
+    --article-font-size: 20px;
 }
 
 
@@ -190,6 +191,7 @@ nav{
     margin-bottom: 3em;
     margin-top: 3em;
 }
+
 
 .footer{
     background-color: #ff7a38;

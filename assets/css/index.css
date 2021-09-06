@@ -13,6 +13,8 @@
 
     --button-hover-color: #e15002;
 
+    --button-search-color: #e1500252;
+
     --card-post-background-color:#f8f9fa;
 }
 
@@ -65,10 +67,39 @@ nav{
 
 }
 
+.search-div{
+    margin-top: 3em;
+    padding-left: 0;
+
+}
+
+#search-input{
+    padding: 9px;
+}
+
+#search-input:focus{
+    box-shadow: none;
+    border-color: var(--button-search-color);
+
+}
+
+#search-btn{
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    color: white;
+    transition: background 0.3s;
+    padding: 0 14px;
+
+}
+
+#search-btn:hover{
+    background-color: var(--button-hover-color);
+    border-color:var(--button-hover-color) ;
+
+}
+
 .title1{
     margin-top: 1em;
-    /*margin-bottom: 1em;*/
-    
 }
 
 .row{

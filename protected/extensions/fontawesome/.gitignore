@@ -1,0 +1,5 @@
+# Ignore framework folder (Yii 1.1)
+framework
+
+# Ignore my IDE project folder
+.idea

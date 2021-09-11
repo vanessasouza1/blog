@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'Blog Conexa',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -51,7 +51,21 @@ return array(
 		*/
 
 		// database settings are configured in database.php
-		'db'=>require(dirname(__FILE__).'/database.php'),
+		//'db'=>require(dirname(__FILE__).'/database.php'),
+
+		'db'=>array(
+            'connectionString'=>'mysql:host=127.0.0.1;port=3306;dbname=blog_conexa',
+			
+			'emulatePrepare' => true,
+
+			'username' => 'root',
+
+			'password' => '',
+
+			'charset' => 'utf8',
+
+                        'tablePrefix'=>'',
+        ),
 
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

@@ -10,24 +10,31 @@ return array(
 	'name'=>'Blog Conexa',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array(
+		'log',
+		'fontawesome',
+	),
 
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'ext.giix-components.*',
 	),
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		/*
+		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'Enter Your Password Here',
+			'password'=>'12345',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
+			'generatorPaths' => array(
+				'ext.giix-core',
+			),
 		),
-		*/
+		
 	),
 
 	// application components
@@ -37,6 +44,12 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+
+		'fontawesome'=>array(
+            'class'=>'ext.fontawesome.FontAwesome5Component',      
+        ),
+		
+		
 
 		// uncomment the following to enable URLs in path-format
 		/*
@@ -60,7 +73,7 @@ return array(
 
 			'username' => 'root',
 
-			'password' => '',
+			'password' => 'vanessa12345@#$',
 
 			'charset' => 'utf8',
 

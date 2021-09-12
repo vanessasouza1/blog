@@ -1,20 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="language" content="pt-br">
+
+
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/create.css">
+
+
+</head>
+
+<body>
+
 <?php
 
 $this->breadcrumbs = array(
 	$model->label(2) => array('index'),
 	Yii::t('app', 'Create'),
 );
-
-$this->menu = array(
-	array('label'=>Yii::t('app', 'List') . ' ' . $model->label(2), 'url' => array('index')),
-	array('label'=>Yii::t('app', 'Manage') . ' ' . $model->label(2), 'url' => array('admin')),
-);
 ?>
 
-<h1><?php echo Yii::t('app', 'Create') . ' ' . GxHtml::encode($model->label()); ?></h1>
+<h3 class="title1 text-center ">Nova Postagem</h3>
 
 <?php
 $this->renderPartial('_form', array(
 		'model' => $model,
 		'buttons' => 'create'));
 ?>
+
+</body>
+</html>

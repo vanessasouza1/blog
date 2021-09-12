@@ -59,6 +59,8 @@ class PostController extends GxController {
 		$this->render('index', array(
 			'dataProvider' => $dataProvider,
 		));
+
+	
 	}
 
 	public function actionAdmin() {

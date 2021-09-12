@@ -1,0 +1,60 @@
+
+
+
+.create-post-section{
+    background-color: var(--card-post-background-color);
+    margin-top: 2em;
+    margin-bottom: 3em;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+div.form .row{
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 100%;
+}
+div.form label{
+    margin-bottom: 0;
+    margin-top: 12px;
+    font-size: 16px;
+    color: rgb(100, 100, 100);
+    font-weight:400!important;
+}
+
+div.form input, div.form textarea, div.form select{
+    margin: 0;
+    width: 100%;
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid rgba(100, 100, 100, 0.323);
+}
+
+div.form input:focus{
+    border-color: var(--main-color);
+}
+div.form textarea:focus{
+    border-color: var(--main-color);
+}
+div.form select:focus{
+    border-color: var(--main-color);
+}
+
+div.form select{
+    margin-bottom: 2em;
+}
+div.form .note{
+    font-size: 12px;
+}
+
+input[type="submit"]{
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover{
+    background-color: var(--button-hover-color);
+}

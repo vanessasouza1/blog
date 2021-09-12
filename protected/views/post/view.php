@@ -1,45 +1,88 @@
-<?php
-
-$this->breadcrumbs = array(
-	$model->label(2) => array('index'),
-	GxHtml::valueEx($model),
-);
-
-$this->menu=array(
-	array('label'=>Yii::t('app', 'List') . ' ' . $model->label(2), 'url'=>array('index')),
-	array('label'=>Yii::t('app', 'Create') . ' ' . $model->label(), 'url'=>array('create')),
-	array('label'=>Yii::t('app', 'Update') . ' ' . $model->label(), 'url'=>array('update', 'id' => $model->id_post)),
-	array('label'=>Yii::t('app', 'Delete') . ' ' . $model->label(), 'url'=>'#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id_post), 'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>Yii::t('app', 'Manage') . ' ' . $model->label(2), 'url'=>array('admin')),
-);
+<?php /* @var $this Controller */ 
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="language" content="pt-br">
 
-<h1><?php echo Yii::t('app', 'View') . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
+	
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/view2.css">
+</head>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data' => $model,
-	'attributes' => array(
-'id_post',
-'data_post',
-'autor',
-'titulo',
-'imagem',
-'texto',
-array(
-			'name' => 'idCategoria',
-			'type' => 'raw',
-			'value' => $model->idCategoria !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->idCategoria)), array('categoria/view', 'id' => GxActiveRecord::extractPkValue($model->idCategoria, true))) : null,
-			),
-	),
-)); ?>
 
-<h2><?php echo GxHtml::encode($model->getRelationLabel('comentarios')); ?></h2>
-<?php
-	echo GxHtml::openTag('ul');
-	foreach($model->comentarios as $relatedModel) {
-		echo GxHtml::openTag('li');
-		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('comentario/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
-		echo GxHtml::closeTag('li');
-	}
-	echo GxHtml::closeTag('ul');
-?>
+
+<body>
+
+
+    <main>
+        <div class="container">
+
+            <h1 class="title-article offset-1 col-10 text-center" name="titulo"><?php echo GxHtml::encode($model->titulo); ?></h1>
+            <div class="text-center">
+                <button type="button" name="id_categoria" class=" btn button-card-tag "><?php echo GxHtml::encode($model->idCategoria); ?></button>
+            </div>
+            <div class="row mt-5">
+                <i class="fas fa-user-circle icon-user"></i>
+                <div class="col-11">
+                    <p class="user-name " name="autor"><?php echo GxHtml::encode($model->autor); ?></p>
+                    <span class="span-user-date" name="data_post"><?php echo GxHtml::encode($model->data_post); ?></span>
+                </div>
+                
+            </div>
+
+            <div>
+                <img src="../assets/images/financeiro.jpg" name="imagem" class="img-fluid image-article" alt="Imagem Artigo">
+            </div>
+            <article name="texto ">
+				<p class="text-justify"><?php echo GxHtml::encode($model->texto); ?></p>
+                
+            </article>
+
+           
+
+            <section class="comments-section">
+                
+                <h3>Deixe seu comentário</h3>
+               <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Nome *</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Seu nome">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Seu comentário *</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="text-center ">
+                        <button type="submit" class=" btn button-index">Comentar</button>
+                    </div>
+                </form>
+            </section>
+
+            
+
+         
+            <section class="comments-section-view">
+                <h3><?php  ?> Comentários</h3>
+                <hr>
+                <?php foreach($model->comentarios as $comentario):  ?>
+                    <div class="row">
+                        <i class="fas fa-user-circle icon-user"></i>
+                        <div class="col-11">
+                            <p class="user-name"><?php echo GxHtml::encode($comentario->nome_autor); ?></p>
+                            <span><?php echo GxHtml::encode($comentario->comentario); ?></span>
+                        </div>
+                    </div>
+                <hr>
+                <?php endforeach; ?> 
+                
+            </section>
+        </div>
+    </main>
+
+    
+
+   
+</body>
+</html>

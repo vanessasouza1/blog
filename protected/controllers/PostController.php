@@ -57,7 +57,7 @@ class PostController extends GxController {
 	public function actionIndex() {
 		
 		$posts = new Post;
-		$posts = Post::model()->findAll();
+		$posts = Post::model()->findAll(array('order'=>'data_post DESC'));
 
 		$this->render('index', array(
 			'posts' => $posts,

@@ -18,7 +18,8 @@
 
             <h1 class="title-article offset-1 col-10 text-center" name="titulo"><?php echo GxHtml::encode($model->titulo); ?></h1>
             <div class="text-center">
-                <button type="button" name="id_categoria" class=" btn button-card-tag "><?php echo GxHtml::encode($model->idCategoria); ?></button>
+                <button type="button" name="id_categoria" class=" btn button-card-tag"><a class="button-tag" href="<?php echo Yii::app()->createUrl('post/queryCategory',array('id'=>$model->id_categoria)); ?>"><?php echo GxHtml::encode($model->idCategoria); ?></a></button>
+                
             </div>
             <div class="row mt-5">
                 <i class="fas fa-user-circle icon-user"></i>
@@ -29,7 +30,7 @@
             </div>
 
             <div>
-                <img src="../assets/images/financeiro.jpg" name="imagem" class="img-fluid image-article" alt="Imagem Artigo">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/financeiro.jpg" name="imagem" class="img-fluid image-article" alt="Imagem Artigo">
             </div>
             <article name="texto ">
 				<p class="text-justify p-article"><?php echo GxHtml::encode($model->texto); ?></p>

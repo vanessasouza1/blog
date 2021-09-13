@@ -41,13 +41,13 @@
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Categorias
 							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">Integrações</a>
-							<a class="dropdown-item" href="#">Serviços</a>
-							<a class="dropdown-item" href="#">Financeiro</a>
-							<a class="dropdown-item" href="#">Agenda</a>
-							<a class="dropdown-item" href="#">Parceiros</a>
-							<a class="dropdown-item" href="#">Outros</a>
+							<div class="dropdown-menu" id="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" value="1" href="<?php echo Yii::app()->createUrl('post/queryCategory',array('id'=>1)); ?>">Integrações</a>
+							<a class="dropdown-item" value="2" href="<?php echo Yii::app()->createUrl('post/queryCategory',array('id'=>2)); ?>">Serviços</a>
+							<a class="dropdown-item" value="3" href="<?php echo Yii::app()->createUrl('post/queryCategory',array('id'=>3)); ?>">Financeiro</a>
+							<a class="dropdown-item" value="4" href="<?php echo Yii::app()->createUrl('post/queryCategory',array('id'=>4)); ?>">Agenda</a>
+							<a class="dropdown-item" value="5" href="<?php echo Yii::app()->createUrl('post/queryCategory',array('id'=>5)); ?>">Parceiros</a>
+							<a class="dropdown-item" value="6" href="<?php echo Yii::app()->createUrl('post/queryCategory',array('id'=>6)); ?>">Outros</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#">Ver Todas</a>
 							</div>
@@ -58,6 +58,7 @@
 			</nav>
 		</header>
 
+		
 	
 
 	<?php echo $content; ?>
@@ -70,5 +71,7 @@
 
 </div>
 
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/jquery/js/jquery.min.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/bootstrap/js//bootstrap.min.js"></script>
 </body>
 </html>

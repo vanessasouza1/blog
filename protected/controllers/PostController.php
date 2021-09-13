@@ -78,9 +78,12 @@ class PostController extends GxController {
 
 	public function actionQueryCategory($id){
 
-
+		$posts = Post::model()->findAll(
+		array("condition"=>"id_categoria =  $id","order"=>"id_post DESC"));
 		
-		
+		$this->render('index', array(
+			'posts' => $posts,
+		));
 	}
 
 }

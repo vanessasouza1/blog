@@ -29,7 +29,9 @@
             
 
             <?php foreach($posts as $post):  ?>
-                
+              
+				
+
                 <div class="row post-container">
                     <div class="col-5  post-container-image">
                         <a href="#"><img src="assets/images/financeiro.jpg" class="img-thumbnail image-card-post" alt="Imagem notícia"></a>
@@ -40,7 +42,7 @@
                         <h4><a class="link-card-post" name="titulo"  href="<?php echo Yii::app()->createUrl('post/view',array('id'=>$post->id_post)); ?>"><?php echo GxHtml::encode($post->titulo); ?></a></h4>
                         <p class="p-card-post " name="texto" ><?php echo GxHtml::encode($post->texto); ?></>
                         <hr>
-                        <button type="button" name="id_categoria" class=" btn button-card-tag"><?php echo GxHtml::encode($post->idCategoria); ?></button>
+                        <button type="button" name="id_categoria" class=" btn button-card-tag"><a href="<?php echo Yii::app()->createUrl('post/queryCategory',array('id'=>$post->id_categoria)); ?>"><?php echo GxHtml::encode($post->idCategoria); ?></a></button>
                         
                         <p class="span-card-post data-post" name="data_post"><?php echo GxHtml::encode($post->data_post); ?></p>
                     </div>

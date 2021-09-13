@@ -30,7 +30,7 @@
 
 	<header>
 			<nav class="navbar navbar-expand-lg navbar-expand-sm navbar-light bg-light">
-				<a class="navbar-brand" href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoConexa.png" class="img-fluid image" alt="logo Conexa"></a>
+				<a class="navbar-brand" href="/blog/index.php/post/index"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoConexa.png" class="img-fluid image" alt="logo Conexa"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" >
 					<span class="navbar-toggler-icon"></span>
 				</button>

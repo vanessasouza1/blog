@@ -13,8 +13,6 @@
 
 
 <body>
-
-
     <main>
         <div class="container">
 
@@ -28,39 +26,15 @@
                     <p class="user-name " name="autor"><?php echo GxHtml::encode($model->autor); ?></p>
                     <span class="span-user-date" name="data_post"><?php echo GxHtml::encode($model->data_post); ?></span>
                 </div>
-                
             </div>
 
             <div>
                 <img src="../assets/images/financeiro.jpg" name="imagem" class="img-fluid image-article" alt="Imagem Artigo">
             </div>
             <article name="texto ">
-				<p class="text-justify"><?php echo GxHtml::encode($model->texto); ?></p>
+				<p class="text-justify p-article"><?php echo GxHtml::encode($model->texto); ?></p>
                 
             </article>
-
-           
-
-            <section class="comments-section">
-                
-                <h3>Deixe seu comentário</h3>
-               <form>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Nome *</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Seu nome">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Seu comentário *</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="text-center ">
-                        <button type="submit" class=" btn button-index">Comentar</button>
-                    </div>
-                </form>
-            </section>
-
-            
 
          
             <section class="comments-section-view">
@@ -77,12 +51,18 @@
                 <hr>
                 <?php endforeach; ?> 
                 
+                <form action="/blog/index.php/comentario/create" class="form-button-comment" method="">
+                    <button type="submit" class="btn button-comment">Deixe seu comentário</button>
+                </form>
             </section>
         </div>
+
     </main>
 
-    
 
    
+
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/jquery/js/jquery.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/bootstrap/js//bootstrap.min.js"></script>
 </body>
 </html>

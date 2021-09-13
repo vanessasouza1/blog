@@ -12,21 +12,21 @@
 
 <body>
 
-<?php
+	<?php
 
-$this->breadcrumbs = array(
-	$model->label(2) => array('index'),
-	Yii::t('app', 'Create'),
-);
-?>
+	$this->breadcrumbs = array(
+		$model->label(2) => array('index'),
+		Yii::t('app', 'Create'),
+	);
+	?>
 
-<h3 class="title1 text-center ">Nova Postagem</h3>
+	<h4 class="title1 text-center ">Nova Postagem</h4>
 
-<?php
-$this->renderPartial('_form', array(
-		'model' => $model,
-		'buttons' => 'create'));
-?>
+	<?php
+	$this->renderPartial('_form', array(
+			'model' => $model,
+			'buttons' => 'create'));
+	?>
 
 </body>
 </html>

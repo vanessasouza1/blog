@@ -55,13 +55,10 @@ class PostController extends GxController {
 	}
 
 	public function actionIndex() {
-		/*$dataProvider = new CActiveDataProvider('Post');
-		$this->render('index', array(
-			'dataProvider' => $dataProvider,
-		));*/
-
+		
 		$posts = new Post;
 		$posts = Post::model()->findAll();
+
 		$this->render('index', array(
 			'posts' => $posts,
 		));
@@ -77,6 +74,13 @@ class PostController extends GxController {
 		$this->render('admin', array(
 			'model' => $model,
 		));
+	}
+
+	public function actionQueryCategory($id){
+
+
+		
+		
 	}
 
 }

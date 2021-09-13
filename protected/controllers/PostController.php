@@ -57,7 +57,7 @@ class PostController extends GxController {
 	public function actionIndex() {
 		
 		$posts = new Post;
-		$posts = Post::model()->findAll(array('order'=>'data_post DESC'));
+		$posts = Post::model()->findAll(array('order'=>'id_post DESC'));
 
 		$this->render('index', array(
 			'posts' => $posts,
@@ -76,6 +76,9 @@ class PostController extends GxController {
 		));
 	}
 
+	/**
+	 * Consulta postagens por categoria
+	 */
 	public function actionQueryCategory($id){
 
 		$posts = Post::model()->findAll(
@@ -85,5 +88,7 @@ class PostController extends GxController {
 			'posts' => $posts,
 		));
 	}
+
+	
 
 }

@@ -13,13 +13,13 @@
 
 
 <body>
+    
     <main>
         <div class="container">
 
             <h1 class="title-article offset-1 col-10 text-center" name="titulo"><?php echo GxHtml::encode($model->titulo); ?></h1>
             <div class="text-center">
                 <button type="button" name="id_categoria" class=" btn button-card-tag"><a class="button-tag" href="<?php echo Yii::app()->createUrl('post/queryCategory',array('id'=>$model->id_categoria)); ?>"><?php echo GxHtml::encode($model->idCategoria); ?></a></button>
-                
             </div>
             <div class="row mt-5">
                 <i class="fas fa-user-circle icon-user"></i>
@@ -28,7 +28,6 @@
                     <span class="span-user-date" name="data_post"><?php echo GxHtml::encode($model->data_post); ?></span>
                 </div>
             </div>
-
             <div>
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/financeiro.jpg" name="imagem" class="img-fluid image-article" alt="Imagem Artigo">
             </div>
@@ -39,8 +38,9 @@
 
          
             <section class="comments-section-view">
-                <h3><?php  ?> Comentários</h3>
+                <h3>Comentários</h3>
                 <hr>
+
                 <?php foreach($model->comentarios as $comentario):  ?>
                     <div class="row">
                         <i class="fas fa-user-circle icon-user"></i>

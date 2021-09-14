@@ -35,7 +35,7 @@ abstract class BasePost extends GxActiveRecord {
 	}
 
 	public static function representingColumn() {
-		return 'data_post';
+		return 'titulo';
 	}
 
 	public function rules() {

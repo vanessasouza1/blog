@@ -1,20 +1,20 @@
 <?php
 
-class PostController extends GxController {
+class UsuarioController extends GxController {
 
 
 	public function actionView($id) {
 		$this->render('view', array(
-			'model' => $this->loadModel($id, 'Post'),
+			'model' => $this->loadModel($id, 'Usuario'),
 		));
 	}
 
 	public function actionCreate() {
-		$model = new Post;
+		$model = new Usuario;
 
 
-		if (isset($_POST['Post'])) {
-			$model->setAttributes($_POST['Post']);
+		if (isset($_POST['Usuario'])) {
+			$model->setAttributes($_POST['Usuario']);
 
 			if ($model->save()) {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
@@ -28,11 +28,11 @@ class PostController extends GxController {
 	}
 
 	public function actionUpdate($id) {
-		$model = $this->loadModel($id, 'Post');
+		$model = $this->loadModel($id, 'Usuario');
 
 
-		if (isset($_POST['Post'])) {
-			$model->setAttributes($_POST['Post']);
+		if (isset($_POST['Usuario'])) {
+			$model->setAttributes($_POST['Usuario']);
 
 			if ($model->save()) {
 				$this->redirect(array('view', 'id' => $model->id));
@@ -46,7 +46,7 @@ class PostController extends GxController {
 
 	public function actionDelete($id) {
 		if (Yii::app()->getRequest()->getIsPostRequest()) {
-			$this->loadModel($id, 'Post')->delete();
+			$this->loadModel($id, 'Usuario')->delete();
 
 			if (!Yii::app()->getRequest()->getIsAjaxRequest())
 				$this->redirect(array('admin'));
@@ -55,18 +55,18 @@ class PostController extends GxController {
 	}
 
 	public function actionIndex() {
-		$dataProvider = new CActiveDataProvider('Post');
+		$dataProvider = new CActiveDataProvider('Usuario');
 		$this->render('index', array(
 			'dataProvider' => $dataProvider,
 		));
 	}
 
 	public function actionAdmin() {
-		$model = new Post('search');
+		$model = new Usuario('search');
 		$model->unsetAttributes();
 
-		if (isset($_GET['Post']))
-			$model->setAttributes($_GET['Post']);
+		if (isset($_GET['Usuario']))
+			$model->setAttributes($_GET['Usuario']);
 
 		$this->render('admin', array(
 			'model' => $model,

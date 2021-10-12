@@ -67,7 +67,7 @@ return array(
 		//'db'=>require(dirname(__FILE__).'/database.php'),
 
 		'db'=>array(
-            'connectionString'=>'mysql:host=127.0.0.1;port=3306;dbname=blog_conexa',
+            'connectionString'=>'mysql:host=127.0.0.1;port=3306;dbname=blogconexa',
 			
 			'emulatePrepare' => true,
 

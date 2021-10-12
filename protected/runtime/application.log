@@ -6065,3 +6065,39 @@ REQUEST_URI=/blog/index.php/post/favicon.png
 HTTP_REFERER=http://localhost/blog/index.php/post/index
 ---
 2021/10/06 16:04:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'blog_conexa.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2021/10/07 02:18:28 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "postagem/create". in C:\xampp7\htdocs\yii-1.1.22\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp7\htdocs\yii-1.1.22\framework\web\CWebApplication.php(141): CWebApplication->runController('postagem/create')
+#1 C:\xampp7\htdocs\yii-1.1.22\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp7\htdocs\blog\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/blog/index.php/postagem/create?
+HTTP_REFERER=http://localhost/blog2/index.php/postagem/index
+---
+2021/10/07 02:21:29 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "postagem/create". in C:\xampp7\htdocs\yii-1.1.22\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp7\htdocs\yii-1.1.22\framework\web\CWebApplication.php(141): CWebApplication->runController('postagem/create')
+#1 C:\xampp7\htdocs\yii-1.1.22\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp7\htdocs\blog\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/blog/index.php/postagem/create
+---
+2021/10/07 15:10:33 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "favicon.png". in C:\xampp7\htdocs\yii-1.1.22\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp7\htdocs\yii-1.1.22\framework\web\CController.php(270): CController->missingAction('favicon.png')
+#1 C:\xampp7\htdocs\yii-1.1.22\framework\web\CWebApplication.php(282): CController->run('favicon.png')
+#2 C:\xampp7\htdocs\yii-1.1.22\framework\web\CWebApplication.php(141): CWebApplication->runController('comentario/favi...')
+#3 C:\xampp7\htdocs\yii-1.1.22\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp7\htdocs\blog\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/blog/index.php/comentario/favicon.png
+HTTP_REFERER=http://localhost/blog/index.php/comentario/create?
+---
+2021/10/12 02:56:38 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "post/index". in C:\xampp7\htdocs\yii-1.1.22\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp7\htdocs\yii-1.1.22\framework\web\CWebApplication.php(141): CWebApplication->runController('post/index')
+#1 C:\xampp7\htdocs\yii-1.1.22\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp7\htdocs\blog\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/blog/index.php/post/index
+---

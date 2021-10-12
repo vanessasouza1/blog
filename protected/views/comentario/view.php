@@ -20,14 +20,12 @@ $this->menu=array(
 	'data' => $model,
 	'attributes' => array(
 'id',
-'data_post',
 'autor',
-'titulo',
-'texto',
+'comentario',
 array(
-			'name' => 'idCategoria',
+			'name' => 'idPost',
 			'type' => 'raw',
-			'value' => $model->idCategoria !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->idCategoria)), array('categoria/view', 'id' => GxActiveRecord::extractPkValue($model->idCategoria, true))) : null,
+			'value' => $model->idPost !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->idPost)), array('post/view', 'id' => GxActiveRecord::extractPkValue($model->idPost, true))) : null,
 			),
 array(
 			'name' => 'idUsuario',
@@ -37,13 +35,3 @@ array(
 	),
 )); ?>
 
-<h2><?php echo GxHtml::encode($model->getRelationLabel('comentarios')); ?></h2>
-<?php
-	echo GxHtml::openTag('ul');
-	foreach($model->comentarios as $relatedModel) {
-		echo GxHtml::openTag('li');
-		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('comentario/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
-		echo GxHtml::closeTag('li');
-	}
-	echo GxHtml::closeTag('ul');
-?>

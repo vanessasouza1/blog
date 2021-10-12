@@ -9,12 +9,14 @@
  * Columns in table "comentario" available as properties of the model,
  * followed by relations of table "comentario" available as properties of the model.
  *
- * @property integer $id_comentario
- * @property string $nome_autor
+ * @property integer $id
+ * @property string $autor
  * @property string $comentario
  * @property integer $id_post
+ * @property integer $id_usuario
  *
  * @property Post $idPost
+ * @property Usuario $idUsuario
  */
 abstract class BaseComentario extends GxActiveRecord {
 
@@ -31,21 +33,22 @@ abstract class BaseComentario extends GxActiveRecord {
 	}
 
 	public static function representingColumn() {
-		return 'nome_autor';
+		return 'autor';
 	}
 
 	public function rules() {
 		return array(
-			array('nome_autor, comentario, id_post', 'required'),
-			array('id_post', 'numerical', 'integerOnly'=>true),
-			array('nome_autor', 'length', 'max'=>255),
-			array('id_comentario, nome_autor, comentario, id_post', 'safe', 'on'=>'search'),
+			array('autor, comentario, id_post, id_usuario', 'required'),
+			array('id_post, id_usuario', 'numerical', 'integerOnly'=>true),
+			array('autor', 'length', 'max'=>255),
+			array('id, autor, comentario, id_post, id_usuario', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function relations() {
 		return array(
 			'idPost' => array(self::BELONGS_TO, 'Post', 'id_post'),
+			'idUsuario' => array(self::BELONGS_TO, 'Usuario', 'id_usuario'),
 		);
 	}
 
@@ -56,21 +59,24 @@ abstract class BaseComentario extends GxActiveRecord {
 
 	public function attributeLabels() {
 		return array(
-			'id_comentario' => Yii::t('app', 'Id Comentario'),
-			'nome_autor' => Yii::t('app', 'Nome Autor'),
+			'id' => Yii::t('app', 'ID'),
+			'autor' => Yii::t('app', 'Autor'),
 			'comentario' => Yii::t('app', 'Comentario'),
 			'id_post' => null,
+			'id_usuario' => null,
 			'idPost' => null,
+			'idUsuario' => null,
 		);
 	}
 
 	public function search() {
 		$criteria = new CDbCriteria;
 
-		$criteria->compare('id_comentario', $this->id_comentario);
-		$criteria->compare('nome_autor', $this->nome_autor, true);
+		$criteria->compare('id', $this->id);
+		$criteria->compare('autor', $this->autor, true);
 		$criteria->compare('comentario', $this->comentario, true);
 		$criteria->compare('id_post', $this->id_post);
+		$criteria->compare('id_usuario', $this->id_usuario);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

@@ -9,16 +9,17 @@
  * Columns in table "post" available as properties of the model,
  * followed by relations of table "post" available as properties of the model.
  *
- * @property integer $id_post
+ * @property integer $id
  * @property string $data_post
  * @property string $autor
  * @property string $titulo
- * @property string $imagem
  * @property string $texto
  * @property integer $id_categoria
+ * @property integer $id_usuario
  *
  * @property Comentario[] $comentarios
  * @property Categoria $idCategoria
+ * @property Usuario $idUsuario
  */
 abstract class BasePost extends GxActiveRecord {
 
@@ -35,15 +36,15 @@ abstract class BasePost extends GxActiveRecord {
 	}
 
 	public static function representingColumn() {
-		return 'titulo';
+		return 'data_post';
 	}
 
 	public function rules() {
 		return array(
-			array('data_post, autor, titulo, imagem, texto, id_categoria', 'required'),
-			array('id_categoria', 'numerical', 'integerOnly'=>true),
-			array('autor, titulo, imagem', 'length', 'max'=>255),
-			array('id_post, data_post, autor, titulo, imagem, texto, id_categoria', 'safe', 'on'=>'search'),
+			array('data_post, autor, titulo, texto, id_categoria, id_usuario', 'required'),
+			array('id_categoria, id_usuario', 'numerical', 'integerOnly'=>true),
+			array('autor, titulo', 'length', 'max'=>255),
+			array('id, data_post, autor, titulo, texto, id_categoria, id_usuario', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,6 +52,7 @@ abstract class BasePost extends GxActiveRecord {
 		return array(
 			'comentarios' => array(self::HAS_MANY, 'Comentario', 'id_post'),
 			'idCategoria' => array(self::BELONGS_TO, 'Categoria', 'id_categoria'),
+			'idUsuario' => array(self::BELONGS_TO, 'Usuario', 'id_usuario'),
 		);
 	}
 
@@ -61,28 +63,29 @@ abstract class BasePost extends GxActiveRecord {
 
 	public function attributeLabels() {
 		return array(
-			'id_post' => Yii::t('app', 'Id Post'),
+			'id' => Yii::t('app', 'ID'),
 			'data_post' => Yii::t('app', 'Data Post'),
 			'autor' => Yii::t('app', 'Autor'),
 			'titulo' => Yii::t('app', 'Titulo'),
-			'imagem' => Yii::t('app', 'Imagem'),
 			'texto' => Yii::t('app', 'Texto'),
 			'id_categoria' => null,
+			'id_usuario' => null,
 			'comentarios' => null,
 			'idCategoria' => null,
+			'idUsuario' => null,
 		);
 	}
 
 	public function search() {
 		$criteria = new CDbCriteria;
 
-		$criteria->compare('id_post', $this->id_post);
+		$criteria->compare('id', $this->id);
 		$criteria->compare('data_post', $this->data_post, true);
 		$criteria->compare('autor', $this->autor, true);
 		$criteria->compare('titulo', $this->titulo, true);
-		$criteria->compare('imagem', $this->imagem, true);
 		$criteria->compare('texto', $this->texto, true);
 		$criteria->compare('id_categoria', $this->id_categoria);
+		$criteria->compare('id_usuario', $this->id_usuario);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

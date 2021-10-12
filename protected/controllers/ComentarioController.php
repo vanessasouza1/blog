@@ -20,7 +20,7 @@ class ComentarioController extends GxController {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
 					Yii::app()->end();
 				else
-					$this->redirect(array('/post/view', 'id' => $model->id_post));
+					$this->redirect(array('view', 'id' => $model->id));
 			}
 		}
 
@@ -35,7 +35,7 @@ class ComentarioController extends GxController {
 			$model->setAttributes($_POST['Comentario']);
 
 			if ($model->save()) {
-				$this->redirect(array('view', 'id' => $model->id_comentario));
+				$this->redirect(array('view', 'id' => $model->id));
 			}
 		}
 

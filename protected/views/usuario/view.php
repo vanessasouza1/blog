@@ -20,20 +20,9 @@ $this->menu=array(
 	'data' => $model,
 	'attributes' => array(
 'id',
-'data_post',
-'autor',
-'titulo',
-'texto',
-array(
-			'name' => 'idCategoria',
-			'type' => 'raw',
-			'value' => $model->idCategoria !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->idCategoria)), array('categoria/view', 'id' => GxActiveRecord::extractPkValue($model->idCategoria, true))) : null,
-			),
-array(
-			'name' => 'idUsuario',
-			'type' => 'raw',
-			'value' => $model->idUsuario !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->idUsuario)), array('usuario/view', 'id' => GxActiveRecord::extractPkValue($model->idUsuario, true))) : null,
-			),
+'nome',
+'email',
+'senha',
 	),
 )); ?>
 
@@ -43,6 +32,15 @@ array(
 	foreach($model->comentarios as $relatedModel) {
 		echo GxHtml::openTag('li');
 		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('comentario/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
+		echo GxHtml::closeTag('li');
+	}
+	echo GxHtml::closeTag('ul');
+?><h2><?php echo GxHtml::encode($model->getRelationLabel('posts')); ?></h2>
+<?php
+	echo GxHtml::openTag('ul');
+	foreach($model->posts as $relatedModel) {
+		echo GxHtml::openTag('li');
+		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('post/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
 		echo GxHtml::closeTag('li');
 	}
 	echo GxHtml::closeTag('ul');

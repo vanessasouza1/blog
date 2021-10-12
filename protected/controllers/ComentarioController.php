@@ -2,74 +2,51 @@
 
 class ComentarioController extends GxController {
 
+	
+	public function filters(){
+        return array(
+            'accessControl',
+        );
+    }
 
-	public function actionView($id) {
-		$this->render('view', array(
-			'model' => $this->loadModel($id, 'Comentario'),
-		));
-	}
+	public function accessRules(){
+        
+		return array(
+			array('deny', 
+				'actions'=>array('create',),
+				'users'=>array('?'),
+			),
+			array('allow', 
+				'actions'=>array('index','view'),
+				'users'=>array('*'),
+			),
+		);   
+    }
 
-	public function actionCreate() {
+	public function actionCreate($id) {
 		$model = new Comentario;
-
 
 		if (isset($_POST['Comentario'])) {
 			$model->setAttributes($_POST['Comentario']);
+			$model->id_usuario = Yii::app()->user->getId();
+			$model->id_post = $id;
+			$model->autor = Yii::app()->user->nome;
 
 			if ($model->save()) {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
 					Yii::app()->end();
 				else
-					$this->redirect(array('view', 'id' => $model->id));
+					$this->redirect(array('/post/view', 'id' => $id));
 			}
 		}
 
 		$this->render('create', array( 'model' => $model));
 	}
 
-	public function actionUpdate($id) {
-		$model = $this->loadModel($id, 'Comentario');
-
-
-		if (isset($_POST['Comentario'])) {
-			$model->setAttributes($_POST['Comentario']);
-
-			if ($model->save()) {
-				$this->redirect(array('view', 'id' => $model->id));
-			}
-		}
-
-		$this->render('update', array(
-				'model' => $model,
-				));
-	}
-
-	public function actionDelete($id) {
-		if (Yii::app()->getRequest()->getIsPostRequest()) {
-			$this->loadModel($id, 'Comentario')->delete();
-
-			if (!Yii::app()->getRequest()->getIsAjaxRequest())
-				$this->redirect(array('admin'));
-		} else
-			throw new CHttpException(400, Yii::t('app', 'Your request is invalid.'));
-	}
-
 	public function actionIndex() {
 		$dataProvider = new CActiveDataProvider('Comentario');
 		$this->render('index', array(
 			'dataProvider' => $dataProvider,
-		));
-	}
-
-	public function actionAdmin() {
-		$model = new Comentario('search');
-		$model->unsetAttributes();
-
-		if (isset($_GET['Comentario']))
-			$model->setAttributes($_GET['Comentario']);
-
-		$this->render('admin', array(
-			'model' => $model,
 		));
 	}
 

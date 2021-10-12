@@ -50,24 +50,47 @@ class PostController extends GxController {
 	}
 
 
+	
+
 	public function actionIndex() {
-		$posts = new Post;
-		$posts = Post::model()->findAll(array('order'=>'id DESC'));
+		$criteria=new CDbCriteria();
+		$criteria->order = 'id DESC';
+		$count=Post::model()->count($criteria);
+		$pages=new CPagination($count);
+	
+		$pages->pageSize=2;
+		$pages->applyLimit($criteria);
+		$models=Post::model()->findAll($criteria);
 
 		$this->render('index', array(
-			'posts' => $posts,
+			'models' => $models,
+			'pages' => $pages
 		));
 	}
 
 	public function actionQueryCategory($id){
 
-		$posts = Post::model()->findAll(
-		array("condition"=>"id_categoria =  $id","order"=>"id DESC"));
+		$criteria=new CDbCriteria();
+		$criteria->order = 'id DESC';
+		$criteria->condition ='id_categoria ='.$id;
+		//$models = Post::model()->findAll(array("condition"=>"id_categoria =  $id","order"=>"id DESC"));	
 		
+		$count=Post::model()->count($criteria);
+		$pages=new CPagination($count);
+	
+	
+		$pages->pageSize=2;
+		$pages->applyLimit($criteria);
+		$models = Post::model()->findAll($criteria);
+
+
 		$this->render('index', array(
-			'posts' => $posts,
+			'models' => $models,
+			'pages' => $pages
 		));
+		
 	}
 
+	
 
 }

@@ -291,3 +291,16 @@ nav{
     background-color: var(--main-color)!important;
     border-color: var(--main-color)!important;
 }
+
+
+.no-post{
+    background-color: var(--card-post-background-color);
+    margin-top: 20px;
+    padding: 20px;
+    color: rgb(107, 107, 107);
+}
+
+.pagination{
+    margin-bottom: 40px;
+
+}

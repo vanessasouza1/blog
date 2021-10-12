@@ -46,7 +46,8 @@ nav{
     padding: 6px 36px;
     font-weight: 600;
     margin-top: 3rem;
-    transition: background 0.3s;
+
+    transition: background 0.1s;
     
 }
 
@@ -54,10 +55,15 @@ nav{
     text-decoration: none!important;
     color: white!important;
 }
-.button-create-a:hover{
+.button-create:hover{
     text-decoration: none!important;
     color: white!important;
-    
+    background-color: var(--button-hover-color)!important;
+}
+
+.button-create:focus{
+    text-decoration: none!important;
+    box-shadow: none;
 }
 
 
@@ -229,3 +235,59 @@ nav{
     color: white;
 }
 
+.button-create-post{
+   
+}
+
+.login-name{
+    cursor: default!important;
+    
+}
+
+.login-name:hover{
+    background-color: var(--main-color)!important;
+}
+
+.logout{
+    background-color: rgba(163, 155, 155, 0.3);
+    color: gray;
+}
+
+.logout:hover{
+    background-color: rgba(163, 155, 155, 0.5)!important;
+    color: gray!important;
+}
+
+.button-register{
+   
+    margin-top: 1em;
+   
+    border-radius: 10px;
+    font-size: var(--nav-font-size);
+    padding: 6px 36px;
+    font-weight: 600;
+    margin-top: 3rem;
+    border-color: var(--main-color);
+    color: var(--main-color);
+
+    transition: background 0.1s;
+    
+}
+
+
+.button-register-a:hover{
+    background-color: var(--main-color)!important;
+    color: white!important;
+    
+    
+}
+
+.button-register:focus{
+    text-decoration: none!important;
+    box-shadow: none;
+}
+
+.btn-outline-secondary:hover{
+    background-color: var(--main-color)!important;
+    border-color: var(--main-color)!important;
+}

@@ -48,6 +48,7 @@ div.form select{
 }
 div.form .note{
     font-size: 12px;
+    margin-bottom: 0!important;
 }
 
 input[type="submit"]{
@@ -61,3 +62,8 @@ input[type="submit"]{
 input[type="submit"]:hover{
     background-color: var(--button-hover-color);
 }
+
+.span-register span a{
+    color: gray;
+}
+

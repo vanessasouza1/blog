@@ -56,7 +56,7 @@ $this->breadcrumbs=array(
 				<hr>
 				<div class="text-center span-register">
 					<span>
-						<a href="/blog3/index.php/usuario/create">Cadastre-se</a>
+						<a href="/blog/index.php/usuario/create">Cadastre-se</a>
 					</span>
 				</div>
 

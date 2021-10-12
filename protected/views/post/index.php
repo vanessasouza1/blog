@@ -29,22 +29,22 @@
             <div class="row">
                 
                 <?php if(!Yii::app()->user->isGuest) :?>
-                    <form action="/blog3/index.php/post/create" method="">
+                    <form action="/blog/index.php/post/create" method="">
                         <button type="submit" class="btn button-create button-create-post mr-5">Nova Postagem</button>
                     </form>
                 
                     <form action="" method="" class="">
                         <button type="submit" class="btn button-create login-name"><?php echo Yii::app()->user->nome; ?></button>
                     </form>
-                    <form action="/blog3/index.php/usuario/logout" method="">
+                    <form action="/blog/index.php/usuario/logout" method="">
                         <button type="submit" class="btn button-create logout">Sair</button>
                     </form>
 
                 <?php else: ?>
-                    <form action="/blog3/index.php/usuario/login" method="">
+                    <form action="/blog/index.php/usuario/login" method="">
                         <button type="submit" class="btn button-create login">Logar</button>
                     </form>
-                    <form action="/blog3/index.php/usuario/create" class="mr-3" method="get">
+                    <form action="/blog/index.php/usuario/create" class="mr-3" method="get">
                         <button type="submit" class="btn btn-outline-secondary button-register ">Cadastrar</button>
                     </form>
 

@@ -19,7 +19,7 @@ class UsuarioController extends GxController {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
 					Yii::app()->end();
 				else
-					$this->redirect(array('/post/index'));
+					$this->redirect(array('/post/index/0'));
 			}
 		}
 
@@ -50,7 +50,7 @@ class UsuarioController extends GxController {
 		{
 			$model->attributes=$_POST['LoginForm'];
 			if($model->validate() && $model->login())
-				$this->redirect(array('/post/index'));
+				$this->redirect(array('/post/index/0'));
 		}
 
 		$this->render('/usuario/login',array('model'=>$model));
@@ -60,6 +60,6 @@ class UsuarioController extends GxController {
 	public function actionLogout()
 	{
 		Yii::app()->user->logout(false);
-		$this->redirect(array('/post/index'));
+		$this->redirect(array('/post/index/0'));
 	}
 }

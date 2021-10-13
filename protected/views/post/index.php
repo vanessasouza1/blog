@@ -24,9 +24,8 @@
     <div class="container-flex" id="page">
         <main>
             <div class="container container-config">
-
                 <div class="row">
-                    
+                
                     <?php if(!Yii::app()->user->isGuest) :?>
                         <form action="/blog/index.php/post/create" method="">
                             <button type="submit" class="btn button-create button-create-post mr-5">Nova Postagem</button>
@@ -50,8 +49,6 @@
                     <?php endif ?>
                 </div>
 
-                
-                
                 <?php if(!empty($models)): ?>
                     <h3 class="title1">Recentes</h3>
                     <?php foreach($models as $model):  ?>
@@ -60,20 +57,19 @@
                                 <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/financeiro.jpg" class="img-thumbnail image-card-post" alt="Imagem notícia"></a>
                             </div>
                             <div class="col-7">
-                                <!-- vai ter q ser o nome do user id-->
                                 <span class="span-card-post" name="autor" id="autor"><?php echo GxHtml::encode($model->autor); ?></span>
 
                                 <h4><a class="link-card-post" name="titulo"  href="<?php echo Yii::app()->createUrl('post/view',array('id'=>$model->id)); ?>"><?php echo GxHtml::encode($model->titulo); ?></a></h4>
                                 <p class="p-card-post " name="texto" ><?php echo GxHtml::encode($model->texto); ?></>
                                 <hr>
-                                <button type="button" name="id_categoria" class=" btn button-card-tag"><a class="button-tag" href="<?php echo Yii::app()->createUrl('post/queryCategory',array('id'=>$model->id_categoria)); ?>"><?php echo GxHtml::encode($model->idCategoria); ?></a></button>
+                                <button type="button" name="id_categoria" class=" btn button-card-tag"><a class="button-tag" href="<?php echo Yii::app()->createUrl('post/index',array('id'=>$model->id_categoria)); ?>"><?php echo GxHtml::encode($model->idCategoria); ?></a></button>
                                 
                                 <p class="span-card-post data-post" name="data_post" id="date"><?php echo GxHtml::encode($model->data_post); ?></p>
                             </div>
                         </div>
                     <?php endforeach; ?>
                     <div class="pagination justify-content-end">
-                        <?php $this->widget('CLinkPager', array( //  PaginationWidget
+                        <?php $this->widget('CLinkPager', array( 
                             'pages' => $pages,
                             'header' => ' ',
                             'prevPageLabel' => '< Anterior',
@@ -82,7 +78,7 @@
                     </div>  
                 <?php else: ?>
                     <div class="no-post text-center">
-                        <h4>Ainda não temos postagens, seja o primeiro(a) a criar! 😀</h4>
+                        <h4>Ainda não temos postagens, seja o(a) primeiro(a) a criar! 😀</h4>
                     </div>
                 <?php endif ?>
 

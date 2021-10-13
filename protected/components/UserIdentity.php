@@ -25,9 +25,9 @@ class UserIdentity extends CUserIdentity
 
 		if ($user===null) { 
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		} else if ($user->senha !== SHA1($this->password)) { // senha invalida
+		} else if ($user->senha !== SHA1($this->password)) { 
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		} else { // Okay!
+		} else { // Ok!
 			$this->_id=$user->id;
             $this->setState('nome', $user->nome);
             $this->errorCode=self::ERROR_NONE;

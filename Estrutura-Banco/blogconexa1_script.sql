@@ -60,7 +60,6 @@ references usuario(id);
 
 
 
-
 insert into categoria
 (nome)
  values

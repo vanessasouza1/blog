@@ -11,8 +11,10 @@ class Usuario extends BaseUsuario{
 	public function rules() {
 		$rulesParent = parent::rules();
 
-		array_push($rulesParent, array('email','unique'));	
-		array_push($rulesParent, array('email','email'));
+		array_push($rulesParent, array('email','unique', 'message'=>'Este email já foi cadastrado.'));	
+		array_push($rulesParent, array('email','email', 'message'=>'Email inválido.'));
+		array_push($rulesParent, array('senha','length','min'=>8, 'tooShort'=>'Senha muito curta (Mínimo: 8 caracteres)'));
+		
 
 		return $rulesParent;
 	}
@@ -32,5 +34,17 @@ class Usuario extends BaseUsuario{
 		return parent::beforeSave();
 	}
 
+	public function authenticate($attribute,$params){
+		if(!$this->hasErrors()){
+
+			if($this->errorCode===UserIdentity::ERROR_USERNAME_INVALID){
+				$this->addError('email','Email incorreto.');
+			}
+			else{
+				$this->addError('senha','Senha incorreta');
+			}
+			
+		}
+	}
 
 }

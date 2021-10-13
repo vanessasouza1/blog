@@ -41,7 +41,7 @@ nav{
     background-color: var(--main-color);
     margin-top: 1em;
     color: white;
-    border-radius: 10px;
+    border-radius: .2em!important;
     font-size: var(--nav-font-size);
     padding: 6px 36px;
     font-weight: 600;
@@ -262,7 +262,7 @@ nav{
    
     margin-top: 1em;
    
-    border-radius: 10px;
+    border-radius: .2em;
     font-size: var(--nav-font-size);
     padding: 6px 36px;
     font-weight: 600;
@@ -303,4 +303,9 @@ nav{
 .pagination{
     margin-bottom: 40px;
 
+}
+
+
+h4{
+    margin-bottom: 0!important;
 }

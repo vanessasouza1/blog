@@ -21,9 +21,10 @@ class LoginForm extends CFormModel{
 	public function rules(){
 		return array(
 			
-			array('email, senha', 'required'),
-			array('email', 'email'),
+			array('email, senha', 'required','message'=>'Campo Obrigatório'),
+			array('email', 'email','message'=>'Email inválido'),
 			array('senha', 'authenticate'),
+			array('senha','length', 'min'=>8, 'max'=>128, 'tooShort'=>'Senha muito curta (Mínimo: 8 caracteres)'),
 		);
 	}
 
@@ -49,7 +50,7 @@ class LoginForm extends CFormModel{
 			$this->_identity=new UserIdentity($this->email,$this->senha);
 			if(!$this->_identity->authenticate()){
 				if($this->_identity->errorCode===UserIdentity::ERROR_USERNAME_INVALID){
-					$this->addError('email','Email incorreto.');
+					$this->addError('email','Email não cadastrado.');
 				}
 				else{
 					$this->addError('senha','Senha incorreta');

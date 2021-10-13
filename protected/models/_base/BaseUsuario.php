@@ -37,7 +37,7 @@ abstract class BaseUsuario extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('nome, email, senha', 'required'),
+			array('nome, email, senha', 'required','message'=>'Campo Obrigatório'),
 			array('nome, email, senha', 'length', 'max'=>255),
 			array('id, nome, email, senha', 'safe', 'on'=>'search'),
 		);

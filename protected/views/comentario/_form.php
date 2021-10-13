@@ -20,7 +20,6 @@
 					<?php echo Yii::t('app', 'Campos com'); ?> <span class="required">*</span> <?php echo Yii::t('app', 'são obrigatórios'); ?>.
 				</p>
 
-				<?php //echo $form->errorSummary($model); ?>
 				<div class="row">
 					<?php echo $form->labelEx($model,'comentario'); ?>
 				</div>

@@ -41,7 +41,7 @@ abstract class BasePost extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('data_post, autor, titulo, texto, id_categoria, id_usuario', 'required'),
+			array('data_post, autor, titulo, texto, id_categoria, id_usuario', 'required', 'message'=>'Campo Obrigatório'),
 			array('id_categoria, id_usuario', 'numerical', 'integerOnly'=>true),
 			array('autor, titulo', 'length', 'max'=>255),
 			array('id, data_post, autor, titulo, texto, id_categoria, id_usuario', 'safe', 'on'=>'search'),

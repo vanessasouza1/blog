@@ -38,7 +38,7 @@ abstract class BaseComentario extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('autor, comentario, id_post, id_usuario', 'required'),
+			array('autor, comentario, id_post, id_usuario', 'required','message'=>'Campo Obrigatório'),
 			array('id_post, id_usuario', 'numerical', 'integerOnly'=>true),
 			array('autor', 'length', 'max'=>255),
 			array('id, autor, comentario, id_post, id_usuario', 'safe', 'on'=>'search'),

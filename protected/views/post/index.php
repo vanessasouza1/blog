@@ -82,7 +82,7 @@
                     </div>  
                 <?php else: ?>
                     <div class="no-post text-center">
-                        <h3>Ainda não temos postagens, seja o primeiro(a) a criar! 😀</h3>
+                        <h4>Ainda não temos postagens, seja o primeiro(a) a criar! 😀</h4>
                     </div>
                 <?php endif ?>
 

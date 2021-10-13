@@ -40,7 +40,6 @@ alter table post
 add foreign key (id_usuario)
 references usuario(id);
 
-/*alter table post add autor varchar(255) not null;*/
 
 create table comentario(
 	id int not null auto_increment,
@@ -59,7 +58,6 @@ alter table comentario
 add foreign key (id_usuario)
 references usuario(id);
 
-/*alter table comentario add autor varchar(255) not null;*/
 
 
 
